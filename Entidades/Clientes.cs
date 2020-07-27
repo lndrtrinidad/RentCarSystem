@@ -17,6 +17,7 @@ namespace RentCarSystem.Entidades
         public string Email { get; set; }
         public string Sexo { get; set; }
         public string Celular { get; set; }
+        public string Direccion { get; set; }
         public decimal LimiteCredito { get; set; }
 
     }
