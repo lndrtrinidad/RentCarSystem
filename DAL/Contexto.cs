@@ -12,10 +12,8 @@ namespace RentCarSystem.DAL
     public class Contexto : DbContext
     {
         public DbSet<Empleados> Empleados { get; set; }
+        public DbSet<Usuarios> Usuarios { get; set; }
+
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.EnableSensitiveDataLogging().UseSqlite(@"Data Sources= DATA\RentCarSystem.db");
-    }
 } 

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RentCarSystem
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RentCarSystemMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RentCarSystemMenu : Window
     {
-        public MainWindow()
+        public RentCarSystemMenu()
         {
             InitializeComponent();
         }
