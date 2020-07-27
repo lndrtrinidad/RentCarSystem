@@ -13,7 +13,7 @@ namespace RentCarSystem.DAL
     {
         public DbSet<Empleados> Empleados { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
-
+        public DbSet<Clientes> Clientes { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite(@"Data Source= DATA\RentCarSystem.db");
