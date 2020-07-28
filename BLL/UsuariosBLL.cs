@@ -171,5 +171,28 @@ namespace RentCarSystem.BLL
 
             return Lista;
         }
+
+        public static bool Autenticar(string nombreUsuario, string password)
+        {
+            Contexto contexto = new Contexto();
+            bool paso = false;
+
+            try
+            {
+
+                paso = contexto.Usuarios.Any(u => u.NombreUsuario.Equals(nombreUsuario) && u.Password.Equals(GetSHA256(password)));
+
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return paso;
+        }
     }
 }
