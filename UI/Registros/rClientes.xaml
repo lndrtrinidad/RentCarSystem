@@ -1,19 +1,19 @@
-﻿<Window x:Class="RentCarSystem.UI.Registros.rUsuarios"
+﻿<Window x:Class="RentCarSystem.UI.Registros.rClientes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RentCarSystem.UI.Registros"
-        xmlns:PasswordHelper="clr-namespace:RentCarSystem.Resources.PasswordHelper"
         mc:Ignorable="d"
-        Title="Registro de Usuarios" Height="450" Width="450" WindowStartupLocation="CenterScreen" WindowState="Normal">
+        Title="Registro de Clientes" Height="600" Width="450" WindowStartupLocation="CenterScreen" WindowState="Normal">
     <Grid>
+
         <StackPanel Orientation="Vertical" Margin="5,0,0,0">
 
             <StackPanel Orientation="Vertical">
                 <Label Content="Usuario Id:" Height="24" />
                 <StackPanel Orientation="Horizontal" >
-                    <TextBox x:Name="UsuarioIdTextBox" Margin="5,0" Text="" Width="80"  Height="25" PreviewTextInput="UsuarioIdTextBoxPreviewTextInput"/>
+                    <TextBox x:Name="UsuarioIdTextBox" Margin="5,0" Text="" Width="80"  Height="25" PreviewTextInput="UsuarioIdTextBox_PreviewTextInput" />
                     <Button x:Name="BuscarButton" Margin="2,0" Background="#FFC3C3C3">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/find.png" Margin="-5,0"  Height="20" Width="31"  />
@@ -21,26 +21,42 @@
                         </StackPanel>
                     </Button>
                 </StackPanel>
+
+                <Label Content="Nombres:"/>
+                <TextBox x:Name="NombresTextBox"  Text="{Binding Nombres}" Margin="5,0" Height="28"/>
+
+                <Label Content="Apellidos:"/>
+                <TextBox x:Name="ApellidosTextBox"  Text="{Binding Apellidos}" Margin="5,0" Height="28"/>
+
+                <Label Content="Cedula:"/>
+                <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" Margin="5,0" Height="28"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <Label Content="Sexo:"/>
+                    <RadioButton GroupName="sex" IsChecked="False" Margin="5,0">Masculino</RadioButton>
+                    <RadioButton GroupName="sex" IsChecked="False">Femenino</RadioButton>
+                    
+                </StackPanel>
+
+                <Label Content="Email:"/>
+                <TextBox x:Name="EmailTextBox" Text="{Binding Email}" Margin="5,0" Height="28"/>
+
+                <Label Content="Celular:"/>
+                <TextBox x:Name="CelularTextBox" Text="{Binding Celular}" Margin="5,0" Height="28"/>
+
+                <Label Content="Direcciòn:"/>
+                <TextBox x:Name="DireccionTextBox" Text="{Binding Direccion}" Margin="5,0" Height="28"/>
+
+                <Label Content="Liminte de Credito:"/>
+                <TextBox x:Name="LimiteCreditoTextBox" Text="{Binding LimiteCredito}" Margin="5,0" Height="28"/>
+
             </StackPanel>
-
-            <Label Content="Nombres:"/>
-            <TextBox x:Name="NombresTextBox"  Text="{Binding Nombres}" Margin="5,0" Height="28"/>
-
-            <Label Content="Nombre Usuario:"/>
-            <TextBox x:Name="NombreUsuarioTextBox" Text="{Binding NombreUsuario}" Margin="5,0" Height="28"/>
-
-            <Label Content="Contraseña:"/>
-            <PasswordBox x:Name="ContraseñaPasswordBox" PasswordHelper:PasswordHelper.Attach="True" PasswordHelper:PasswordHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="28" Margin="5,0"/>
-
-            <Label Content="Confirmar Contraseña"/>
-            <PasswordBox x:Name="ConfirmarContrasenaPasswordBox" PasswordHelper:PasswordHelper.Attach="True" Height="28" Margin="5,0"/>
-
-            <Label Content="Fecha Creacion:"/>
-            <DatePicker x:Name="FechaCreacionDatePicker" SelectedDate="{Binding FechaCreacion}" Height="28" IsEnabled="False" Margin="5,0"/>
-
+            
+            
+            
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Margin="12,200,0,-117" >
+        <StackPanel Orientation="Horizontal" Margin="12,320,10,-117" >
             <Button x:Name="NuevoButton" Margin="10,0"  Height="44" Width="120" Background="#FFC3C3C3">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Resources/plus.png" Height="33" Width="37"  />

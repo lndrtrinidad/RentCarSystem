@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RentCarSystem.UI.Registros;
 
 namespace RentCarSystem
 {
@@ -25,10 +26,21 @@ namespace RentCarSystem
             InitializeComponent();
         }
 
-        private void Prueba_Click(object sender, RoutedEventArgs e)
+    
+
+        private void UsuarioMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //Canvas.SetZIndex(PanelGris,2);
-            
+            rUsuarios rUsuarios = new rUsuarios();
+            rUsuarios.Show();
+
+        }
+
+        private void ClienteMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            rClientes rClientes = new rClientes();
+            rClientes.Show();
+                
+
         }
     }
 }

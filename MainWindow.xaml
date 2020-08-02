@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RentCarSystem"
         mc:Ignorable="d"
+
         Title="Rent Car System" Height="500" Width="850" WindowStartupLocation="CenterScreen" WindowState="Normal" ResizeMode="CanMinimize">
 
     <Grid RenderTransformOrigin="0.65,0.506">
@@ -15,10 +16,9 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <Image Source="/Resources/CarRentalPage.jpg"  Grid.Column="1" Margin="0,10,1,0" />
 
-       
-
-        <ListBox ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,5,2,-44">
+        <ListBox ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="-5,0,0,0">
             <ListBox.Resources>
                 <Style TargetType="{x:Type Expander}">
                     <Setter Property="IsExpanded"
@@ -42,7 +42,7 @@
                 </Style>
             </ListBox.ItemContainerStyle>
 
-            <Expander BorderBrush="#FFFFF7F7" Foreground="Black">
+            <Expander BorderBrush="#FFFFF7F7" Foreground="Black" Margin="5,0">
                 <Expander.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black"/>
@@ -58,13 +58,13 @@
                     </BulletDecorator>
                 </Expander.Header>
                 <WrapPanel>
-                    <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Cliente"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Cliente" MouseDoubleClick="ClienteMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Vehiculo"/>
-                    <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Usuario"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Usuario" MouseDoubleClick="UsuarioMouseDoubleClick"/>
                 </WrapPanel>
             </Expander>
 
-            <Expander BorderBrush="#FFFFF7F7" Foreground="Black">
+            <Expander BorderBrush="#FFFFF7F7" Foreground="Black" Margin="5,0">
                 <Expander.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black"/>
@@ -86,7 +86,7 @@
                 </WrapPanel>
             </Expander>
 
-            <Expander BorderBrush="#FFFFF7F7" Foreground="Black">
+            <Expander BorderBrush="#FFFFF7F7" Foreground="Black" Margin="5,0">
                 <Expander.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="Black"/>
@@ -109,7 +109,7 @@
         </ListBox>
 
         <StackPanel Background="GhostWhite" Margin="198,0,0,0">
-            
+
         </StackPanel>
 
 

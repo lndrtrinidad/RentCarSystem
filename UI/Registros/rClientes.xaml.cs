@@ -14,19 +14,18 @@ using System.Windows.Shapes;
 namespace RentCarSystem.UI.Registros
 {
     /// <summary>
-    /// Interaction logic for rUsuarios.xaml
+    /// Interaction logic for rClientes.xaml
     /// </summary>
-    public partial class rUsuarios : Window
+    public partial class rClientes : Window
     {
-        public rUsuarios()
+        public rClientes()
         {
             InitializeComponent();
         }
 
-        private void UsuarioIdTextBoxPreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void UsuarioIdTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
-
         }
     }
 }

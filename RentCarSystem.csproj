@@ -5,10 +5,16 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>car.ico</ApplicationIcon>
+    <StartupObject></StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="car.ico" />
     <None Remove="Resources\attendance.png" />
+    <None Remove="Resources\car.ico" />
+    <None Remove="Resources\car.png" />
+    <None Remove="Resources\CarRentalPage.jpg" />
     <None Remove="Resources\close.png" />
     <None Remove="Resources\customer.png" />
     <None Remove="Resources\find.png" />
@@ -39,7 +45,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="car.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\attendance.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\car.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\CarRentalPage.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\close.png">
