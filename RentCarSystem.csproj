@@ -10,6 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200803200847_Initial_Migration.cs" />
+    <Compile Remove="Migrations\20200803200847_Initial_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200803201212_Second_Migration.cs" />
+    <Compile Remove="Migrations\20200803201212_Second_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200803202405_SolvedError_Migration.cs" />
+    <Compile Remove="Migrations\20200803202405_SolvedError_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200803203018_Initial Migration.cs" />
+    <Compile Remove="Migrations\20200803203018_Initial Migration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="car.ico" />
     <None Remove="Resources\attendance.png" />
     <None Remove="Resources\car.ico" />
@@ -39,8 +50,6 @@
 
   <ItemGroup>
     <Folder Include="DATA\" />
-    <Folder Include="Migrations\" />
-    <Folder Include="UI\Consultas\" />
     <Folder Include="UI\Reportes\" />
   </ItemGroup>
 

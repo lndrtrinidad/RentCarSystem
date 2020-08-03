@@ -1,0 +1,69 @@
+﻿<Window x:Class="RentCarSystem.UI.Registros.rEmpleados"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RentCarSystem.UI.Registros"
+        mc:Ignorable="d"
+        
+        Title="Registro de Empleados" Height="500" Width="450" WindowStartupLocation="CenterScreen" WindowState="Normal">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="5,0,0,0">
+
+            <StackPanel Orientation="Vertical">
+                <Label Content="Empleado Id:" Height="24" />
+                <StackPanel Orientation="Horizontal" >
+                    <TextBox x:Name="EmpleadoIdTextBox" Margin="5,0" Text="" Width="80"  Height="25" PreviewTextInput="EmpleadoIdTextBoxPreviewTextInput" />
+                    <Button x:Name="BuscarButton" Margin="2,0" Background="#FFC3C3C3">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/find.png" Margin="-5,0"  Height="20" Width="31"  />
+                            <Label Content="Buscar" Height="28" Width="60" Margin="0,-5" FontSize="16"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+            <Label Content="Nombres:"/>
+            <TextBox x:Name="NombresTextBox"  Text="{Binding Nombres}" Margin="5,0" Height="28"/>
+
+
+            <Label Content="Apellidos:"/>
+            <TextBox x:Name="ApellidosUsuarioTextBox" Text="{Binding Apellidos}" Margin="5,0" Height="28"/>
+
+            <Label Content="Cedula:"/>
+            <TextBox x:Name="CedulaTextbox" Text="{Binding Cedula}" Margin="5,0" Height="28"/>
+
+            <Label Content="Telefono"/>
+            <TextBox x:Name="TelefonoTextbox" Text="{Binding Telefono}" Margin="5,0" Height="28"/>
+
+            <Label Content="Porciento de Comision"/>
+            <TextBox x:Name="ProcientoComisionTextBox" Text="{Binding PorcientoComision}" Margin="5,0" Height="28"/>
+
+
+            <Label Content="Fecha de Ingreso:"/>
+            <DatePicker x:Name="FechaIngresoDatePicker" SelectedDate="{Binding FechaIngreso}" Height="28"  Margin="5,0"/>
+
+        </StackPanel>
+
+    <StackPanel Orientation="Horizontal" Margin="12,200,0,-150" >
+            <Button x:Name="NuevoButton" Margin="10,0"  Height="44" Width="120" Background="#FFC3C3C3">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/plus.png" Height="33" Width="37"/>
+                    <Label Content="Nuevo" Height="32" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="GuardarButton"   Margin="5,0" Height="44" Background="#FFC3C3C3">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/floppy-disk.png" Height="27"/>
+                    <Label Content="Guardar" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="EliminarButton"  Margin="10,0"  Height="44" Background="#FFC3C3C3">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/trash.png" Height="30"/>
+                    <Label Content="Eliminar" FontSize="16" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

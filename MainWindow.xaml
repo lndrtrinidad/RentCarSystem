@@ -59,8 +59,12 @@
                 </Expander.Header>
                 <WrapPanel>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Cliente" MouseDoubleClick="ClienteMouseDoubleClick"/>
-                    <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Vehiculo"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Empleado" MouseDoubleClick="EmpleadoMouseDoubleClick"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Vehiculo" MouseDoubleClick="VehiculoMouseDoubleClick"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Renta" MouseDoubleClick="RentaMouseDoubleClick"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Mantenimiento" MouseDoubleClick="MantenimientoMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Usuario" MouseDoubleClick="UsuarioMouseDoubleClick"/>
+                    
                 </WrapPanel>
             </Expander>
 
@@ -80,9 +84,9 @@
                     </BulletDecorator>
                 </Expander.Header>
                 <WrapPanel>
-                    <Label Margin="20,5,5,5" Foreground="white" Content="Nuevo Remito"/>
-                    <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Remitos"/>
-                    <Label Margin="20,5,5,5" Foreground="white" Content="Remitos Pendientes de Facturar"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Cliente" MouseDoubleClick="ConsultaClientesMouseDoubleClick"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Vehiculos"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Usuarios"/>
                 </WrapPanel>
             </Expander>
 
@@ -102,8 +106,7 @@
                     </BulletDecorator>
                 </Expander.Header>
                 <WrapPanel>
-                    <Label Margin="20,5,5,5" Foreground="white" Content="Nueva Factura"/>
-                    <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Facturas Normales y Anuladas"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Reporte de Rentas"/>
                 </WrapPanel>
             </Expander>
         </ListBox>

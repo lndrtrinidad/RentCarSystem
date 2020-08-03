@@ -118,11 +118,11 @@ namespace RentCarSystem.BLL
         public static Clientes Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Clientes cliente;
+            Clientes clientes;
 
             try
             {
-                cliente = contexto.Clientes.Find(id);
+                clientes = contexto.Clientes.Find(id);
 
             }
             catch(Exception)
@@ -134,7 +134,7 @@ namespace RentCarSystem.BLL
                 contexto.Dispose();
             }
 
-            return cliente;
+            return clientes;
         }
 
         public static List<Clientes> GetClientes()

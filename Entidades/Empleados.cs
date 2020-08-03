@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.IO.Packaging;
 using System.Text;
 
@@ -10,6 +11,7 @@ namespace RentCarSystem.Entidades
     {
         [Key]
         public int EmpleadoId { get; set; }
+        public int UsuarioId { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Cedula { get; set; }
@@ -17,5 +19,9 @@ namespace RentCarSystem.Entidades
         public string Email { get; set; }
         public DateTime FechaIngreso { get; set; } = DateTime.Now;
         public decimal PorcientoComision { get; set; }
+
+        [ForeignKey("UsuarioId")]
+        public Usuarios usuarios { get; set; }
+
     }
 }

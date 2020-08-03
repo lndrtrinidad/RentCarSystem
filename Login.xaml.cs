@@ -34,14 +34,14 @@ namespace RentCarSystem
             Application.Current.Shutdown();
         }
 
-        private void IniciarSeccionButton_Click(object sender, RoutedEventArgs e)
+        private void IniciarSeccionButtonClick(object sender, RoutedEventArgs e)
         {
             bool paso = UsuariosBLL.Autenticar(NombreUsuarioTextBox.Text, PasswordPasswordBox.Password);
 
             if(paso)
             {
-                this.Close();
                 Principal.Show();
+                this.Hide();
             }
             else
             {
@@ -51,9 +51,9 @@ namespace RentCarSystem
             }
         }
 
-        private void CancelarButton_Click(object sender, RoutedEventArgs e)
+        private void CancelarButtonClick(object sender, RoutedEventArgs e)
         {
-            
+            Application.Current.Shutdown();
         }
     }
 }

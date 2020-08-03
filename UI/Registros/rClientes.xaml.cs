@@ -41,7 +41,7 @@ namespace RentCarSystem.UI.Registros
         {
             bool esValido = true;
 
-            if (UsuarioIdTextBox.Text.Length == 0)
+            if (ClienteIdTextBox.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo",
@@ -53,10 +53,10 @@ namespace RentCarSystem.UI.Registros
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            var articulo = ClientesBLL.Buscar(Utilidades.ToInt(UsuarioIdTextBox.Text));
+            var clientes = ClientesBLL.Buscar(Utilidades.ToInt(ClienteIdTextBox.Text));
 
-            if (articulo != null)
-                this.Clientes = articulo;
+            if (clientes != null)
+                this.Clientes = clientes;
             else
                 this.Clientes = new Clientes();
 
@@ -88,7 +88,7 @@ namespace RentCarSystem.UI.Registros
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ClientesBLL.Eliminar(Utilidades.ToInt(UsuarioIdTextBox.Text)))
+            if (ClientesBLL.Eliminar(Utilidades.ToInt(ClienteIdTextBox.Text)))
             {
                 Limpiar();
                 MessageBox.Show("Registro eliminado!", "Exito",

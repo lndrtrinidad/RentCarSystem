@@ -37,11 +37,11 @@
             <PasswordBox x:Name="ConfirmarContrasenaPasswordBox" PasswordHelper:PasswordHelper.Attach="True" Height="28" Margin="5,0"/>
 
             <Label Content="Fecha Creacion:"/>
-            <DatePicker x:Name="FechaCreacionDatePicker" SelectedDate="{Binding FechaCreacion}" Height="28" IsEnabled="False" Margin="5,0"/>
+            <DatePicker x:Name="FechaCreacionDatePicker" SelectedDate="{Binding FechaCreacion}" Height="28" IsEnabled="True" Margin="5,0"/>
 
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Margin="12,200,0,-117" >
+        <StackPanel Orientation="Horizontal" Margin="12,204,0,-117" >
             <Button x:Name="NuevoButton" Margin="10,0"  Height="44" Width="120" Background="#FFC3C3C3" Click="NuevoButton_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Resources/plus.png" Height="33" Width="37"  />

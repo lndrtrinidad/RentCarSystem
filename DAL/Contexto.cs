@@ -14,10 +14,21 @@ namespace RentCarSystem.DAL
         public DbSet<Empleados> Empleados { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Clientes> Clientes { get; set; }
+        public DbSet<Marcas> Marcas { get; set; }
+        public DbSet<Modelos> Modelos { get; set; }
+        public DbSet<Vehiculos> Vehiculos { get; set; }
+        public DbSet<Caracteristicas> Caracteristicas { get; set; }
+        public DbSet<Mantenimientos> Mantenimientos { get; set; }
+        public DbSet<Rentas> Rentas { get; set; }
+
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite(@"Data Source= DATA\RentCarSystem.db");
         }
+
+        
     }
 
 } 

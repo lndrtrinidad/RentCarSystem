@@ -54,10 +54,10 @@ namespace RentCarSystem.UI.Registros
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            var articulo = UsuariosBLL.Buscar(Utilidades.ToInt(UsuarioIdTextBox.Text));
+            var usuarios = UsuariosBLL.Buscar(Utilidades.ToInt(UsuarioIdTextBox.Text));
 
-            if (articulo != null)
-                this.Usuarios = articulo;
+            if (usuarios != null)
+                this.Usuarios = usuarios;
             else
                 this.Usuarios = new Usuarios();
 

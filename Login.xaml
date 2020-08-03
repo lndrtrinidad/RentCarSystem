@@ -36,14 +36,14 @@
             </StackPanel>
         </Grid>
 
-        <Button x:Name="IniciarSeccionButton" VerticalAlignment="Top" Margin="74,430,74,0"  RenderTransformOrigin="0.739,0.696" Height="50" Foreground="White" Background="#FFE8E8E8" BorderBrush="#FF0B2EEB" Click="IniciarSeccionButton_Click">
+        <Button x:Name="IniciarSeccionButton" VerticalAlignment="Top" Margin="74,430,74,0"  RenderTransformOrigin="0.739,0.696" Height="50" Foreground="White" Background="#FFE8E8E8" BorderBrush="#FF0B2EEB" Click="IniciarSeccionButtonClick">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Image Source="/Resources/login.png" Height="25" Width="33" RenderTransformOrigin="-0.344,0.596" />
                 <Label Content="Iniciar Sesion" FontSize="20" Width="140" RenderTransformOrigin="-0.075,0.487"/>
             </StackPanel>
         </Button>
 
-        <Button x:Name="CancelarButton" VerticalAlignment="Top"  Margin="74,502,74,0" RenderTransformOrigin="0.447,1.442" Height="50" Background="#FFE8E8E8" BorderBrush="#FF0B2EEB" Click="CancelarButton_Click">
+        <Button x:Name="CancelarButton" VerticalAlignment="Top"  Margin="74,502,74,0" RenderTransformOrigin="0.447,1.442" Height="50" Background="#FFE8E8E8" BorderBrush="#FF0B2EEB" Click="CancelarButtonClick">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Image Source="/Resources/close.png" Height="20" Width="32"/>
                 <Label Content="Cancelar" FontSize="20" Width="91" VerticalAlignment="Center"/>

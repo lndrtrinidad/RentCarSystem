@@ -1,0 +1,62 @@
+﻿<Window x:Class="RentCarSystem.UI.Registros.rMantenimientos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RentCarSystem.UI.Registros"
+        mc:Ignorable="d"
+        Title="Registro de Mantenimientos" Height="450" Width="450" WindowStartupLocation="CenterScreen" WindowState="Normal">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="5,0,0,0">
+
+            <StackPanel Orientation="Vertical">
+                <Label Content="Mantenimiento Id:" Height="24" />
+                <StackPanel Orientation="Horizontal" >
+                    <TextBox x:Name="MantenimientoIdTextBox" Margin="5,0" Text="" Width="100"  Height="28" PreviewTextInput="MantenimientoIdTextBoxPreviewTextInput" />
+                    <Button x:Name="BuscarButton" Margin="5,-5" Background="#FFC3C3C3">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/find.png" Margin="-5,0"  Height="20" Width="31"  />
+                            <Label Content="Buscar" Height="28" Width="60" Margin="0,-5" FontSize="16"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+            <Label Content="Vehicùlo:"/>
+            <ComboBox x:Name="VehiculoComboBox" SelectedValue="{Binding VehiculoId}" HorizontalAlignment="Left" Margin="5,0" Width="150"/>
+
+            <Label Content="Observaciòn:" Margin="0,5"/>
+            <TextBox x:Name="ObservacionTextBox" Text="{Binding Observacion}" HorizontalAlignment="Left" Margin="5,0" Width="350" Height="28"/>
+
+            <Label Content="Total:" Margin="0,5"/>
+            <TextBox x:Name="TotalTextBox" Text="{Binding Total}" HorizontalAlignment="Left" Margin="5,0" Width="350" Height="28"/>
+
+            <Label Content="Fecha:" Margin="0,5"/>
+            <DatePicker x:Name="FechaDatepicker" SelectedDate="{Binding Fecha}" HorizontalAlignment="Left" Margin="5,0" Width="350" Height="28"/>
+
+            <StackPanel Orientation="Horizontal" Width="400" Margin="0,50" >
+            <Button x:Name="NuevoButton" Margin="-5,0"  Height="44" Width="120" Background="#FFC3C3C3">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/plus.png" Height="33" Width="37"/>
+                    <Label Content="Nuevo" Height="32" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="GuardarButton"   Margin="15,0" Height="44" Background="#FFC3C3C3">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/floppy-disk.png" Height="27"/>
+                    <Label Content="Guardar" FontSize="16"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="EliminarButton"  Margin="-5,0"  Height="44" Background="#FFC3C3C3">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Resources/trash.png" Height="30"/>
+                    <Label Content="Eliminar" FontSize="16" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+
+
+        </StackPanel>
+    </Grid>
+</Window>

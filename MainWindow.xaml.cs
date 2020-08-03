@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RentCarSystem.UI.Consultas;
 using RentCarSystem.UI.Registros;
 
 namespace RentCarSystem
@@ -40,6 +41,37 @@ namespace RentCarSystem
             rClientes rClientes = new rClientes();
             rClientes.Show();
                 
+
+        }
+
+        private void EmpleadoMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            rEmpleados rEmpleados = new rEmpleados();
+            rEmpleados.Show();
+        }
+
+        private void VehiculoMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            rVehiculos rVehiculos = new rVehiculos();
+            rVehiculos.Show();
+        }
+
+        private void RentaMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            rRentas rRentas = new rRentas();
+            rRentas.Show();
+        }
+
+        private void MantenimientoMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            rMantenimientos rMantenimientos = new rMantenimientos();
+            rMantenimientos.Show();
+        }
+
+        private void ConsultaClientesMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            cClientes  cClientes = new cClientes();
+            cClientes.Show();
 
         }
     }

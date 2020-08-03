@@ -11,9 +11,9 @@
         <StackPanel Orientation="Vertical" Margin="5,0,0,0">
 
             <StackPanel Orientation="Vertical">
-                <Label Content="Usuario Id:" Height="24" />
+                <Label Content="Cliente Id:" Height="24" />
                 <StackPanel Orientation="Horizontal" >
-                    <TextBox x:Name="UsuarioIdTextBox" Margin="5,0" Text="" Width="80"  Height="25" PreviewTextInput="UsuarioIdTextBox_PreviewTextInput" />
+                    <TextBox x:Name="ClienteIdTextBox" Margin="5,0" Text="" Width="80"  Height="25" PreviewTextInput="UsuarioIdTextBox_PreviewTextInput" />
                     <Button x:Name="BuscarButton" Margin="2,0" Background="#FFC3C3C3" Click="BuscarButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/find.png" Margin="-5,0"  Height="20" Width="31"  />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace RentCarSystem.Entidades
@@ -10,6 +11,9 @@ namespace RentCarSystem.Entidades
         [Key]
 
         public int VehiculoId { get; set; }
+
+        public int MarcaId { get; set; }
+        public int ModeloId { get; set; }
         public string Descripcion { get; set; }
         public string VIN { get; set; }
         public string Placa { get; set; }
@@ -20,5 +24,15 @@ namespace RentCarSystem.Entidades
         public decimal PrecioPorDia { get; set; }
 
         public bool Disponible { get; set; }
+
+        [ForeignKey("MarcaId")]
+        public virtual Marcas marcas { get; set; }
+
+        [ForeignKey("ModeloId")]
+        public virtual Modelos modelos { get; set; }
+
+
+
+
     }
 }
