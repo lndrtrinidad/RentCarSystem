@@ -41,7 +41,7 @@ namespace RentCarSystem
             if(paso)
             {
                 Principal.Show();
-                this.Hide();
+                
             }
             else
             {

@@ -31,12 +31,8 @@
                 <Label Content="Cedula:"/>
                 <TextBox x:Name="CedulaTextBox" Text="{Binding Cedula}" Margin="5,0" Height="28"/>
 
-                <StackPanel Orientation="Horizontal" Margin="0,10">
-                    <Label Content="Sexo:"/>
-                    <RadioButton GroupName="sex" IsChecked="False" Margin="5,0">Masculino</RadioButton>
-                    <RadioButton GroupName="sex" IsChecked="False">Femenino</RadioButton>
-                    
-                </StackPanel>
+                <Label Content="Sexo:"/>
+                <TextBox x:Name="SexoTextBox" Text="{Binding Sexo}"/>
 
                 <Label Content="Email:"/>
                 <TextBox x:Name="EmailTextBox" Text="{Binding Email}" Margin="5,0" Height="28"/>
