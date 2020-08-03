@@ -28,7 +28,13 @@ namespace RentCarSystem.DAL
             optionsBuilder.UseSqlite(@"Data Source= DATA\RentCarSystem.db");
         }
 
-        
-    }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Marcas>().HasData(new Marcas { MarcaId = 1, Descripcion = "Mercedez Benz" });
+            modelBuilder.Entity<Marcas>().HasData(new Marcas { MarcaId = 2, Descripcion = "Toyota" });
+            modelBuilder.Entity<Marcas>().HasData(new Marcas { MarcaId = 3, Descripcion = "Honda" });
+            modelBuilder.Entity<Marcas>().HasData(new Marcas { MarcaId = 4, Descripcion = "Lexus" });
 
+        }
+    }
 } 
