@@ -88,7 +88,7 @@ namespace RentCarSystem.UI.Registros
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            if (EmpleadosBLL.Eliminar(Utilidades.ToInt(Empleados.Text)))
+            if (EmpleadosBLL.Eliminar(Utilidades.ToInt(EmpleadoIdTextBox.Text)))
             {
                 Limpiar();
                 MessageBox.Show("Registro eliminado!", "Exito",
