@@ -3,6 +3,7 @@ using RentCarSystem.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -27,7 +28,7 @@ namespace RentCarSystem.UI.Registros
 
         private void CaracteristicaIdTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
 
         private void Limpiar()
