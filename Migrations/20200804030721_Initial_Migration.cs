@@ -61,7 +61,8 @@ namespace RentCarSystem.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Nombres = table.Column<string>(nullable: true),
                     NombreUsuario = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true)
+                    Password = table.Column<string>(nullable: true),
+                    FechaCreacion = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -69,19 +70,28 @@ namespace RentCarSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Modelos",
+                name: "vehiculos",
                 columns: table => new
                 {
-                    ModeloId = table.Column<int>(nullable: false)
+                    VehiculoId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     MarcaId = table.Column<int>(nullable: false),
-                    Descripcion = table.Column<string>(nullable: true)
+                    Modelo = table.Column<string>(nullable: true),
+                    Descripcion = table.Column<string>(nullable: true),
+                    VIN = table.Column<string>(nullable: true),
+                    Placa = table.Column<string>(nullable: true),
+                    Matricula = table.Column<string>(nullable: true),
+                    Ano = table.Column<int>(nullable: false),
+                    Color = table.Column<string>(nullable: true),
+                    Costo = table.Column<decimal>(nullable: false),
+                    PrecioPorDia = table.Column<decimal>(nullable: false),
+                    Disponible = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Modelos", x => x.ModeloId);
+                    table.PrimaryKey("PK_vehiculos", x => x.VehiculoId);
                     table.ForeignKey(
-                        name: "FK_Modelos_Marcas_MarcaId",
+                        name: "FK_vehiculos_Marcas_MarcaId",
                         column: x => x.MarcaId,
                         principalTable: "Marcas",
                         principalColumn: "MarcaId",
@@ -115,41 +125,6 @@ namespace RentCarSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Vehiculos",
-                columns: table => new
-                {
-                    VehiculoId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    MarcaId = table.Column<int>(nullable: false),
-                    ModeloId = table.Column<int>(nullable: false),
-                    Descripcion = table.Column<string>(nullable: true),
-                    VIN = table.Column<string>(nullable: true),
-                    Placa = table.Column<string>(nullable: true),
-                    Matricula = table.Column<string>(nullable: true),
-                    Ano = table.Column<int>(nullable: false),
-                    Color = table.Column<string>(nullable: true),
-                    Costo = table.Column<decimal>(nullable: false),
-                    PrecioPorDia = table.Column<decimal>(nullable: false),
-                    Disponible = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Vehiculos", x => x.VehiculoId);
-                    table.ForeignKey(
-                        name: "FK_Vehiculos_Marcas_MarcaId",
-                        column: x => x.MarcaId,
-                        principalTable: "Marcas",
-                        principalColumn: "MarcaId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Vehiculos_Modelos_ModeloId",
-                        column: x => x.ModeloId,
-                        principalTable: "Modelos",
-                        principalColumn: "ModeloId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Mantenimientos",
                 columns: table => new
                 {
@@ -164,9 +139,9 @@ namespace RentCarSystem.Migrations
                 {
                     table.PrimaryKey("PK_Mantenimientos", x => x.MantenimientoId);
                     table.ForeignKey(
-                        name: "FK_Mantenimientos_Vehiculos_VehiculoId",
+                        name: "FK_Mantenimientos_vehiculos_VehiculoId",
                         column: x => x.VehiculoId,
-                        principalTable: "Vehiculos",
+                        principalTable: "vehiculos",
                         principalColumn: "VehiculoId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -203,9 +178,9 @@ namespace RentCarSystem.Migrations
                         principalColumn: "EmpleadoId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Rentas_Vehiculos_VehiculoId",
+                        name: "FK_Rentas_vehiculos_VehiculoId",
                         column: x => x.VehiculoId,
-                        principalTable: "Vehiculos",
+                        principalTable: "vehiculos",
                         principalColumn: "VehiculoId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -219,11 +194,6 @@ namespace RentCarSystem.Migrations
                 name: "IX_Mantenimientos_VehiculoId",
                 table: "Mantenimientos",
                 column: "VehiculoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Modelos_MarcaId",
-                table: "Modelos",
-                column: "MarcaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Rentas_ClienteId",
@@ -241,14 +211,9 @@ namespace RentCarSystem.Migrations
                 column: "VehiculoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vehiculos_MarcaId",
-                table: "Vehiculos",
+                name: "IX_vehiculos_MarcaId",
+                table: "vehiculos",
                 column: "MarcaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Vehiculos_ModeloId",
-                table: "Vehiculos",
-                column: "ModeloId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -269,13 +234,10 @@ namespace RentCarSystem.Migrations
                 name: "Empleados");
 
             migrationBuilder.DropTable(
-                name: "Vehiculos");
+                name: "vehiculos");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");
-
-            migrationBuilder.DropTable(
-                name: "Modelos");
 
             migrationBuilder.DropTable(
                 name: "Marcas");

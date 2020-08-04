@@ -9,9 +9,9 @@ namespace RentCarSystem.Entidades
     public class Vehiculos
     {
         [Key]
-
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int VehiculoId { get; set; }
-
+        
         public int MarcaId { get; set; }
         public string Modelo { get; set; }
         public string Descripcion { get; set; }

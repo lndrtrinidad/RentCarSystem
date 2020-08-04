@@ -21,10 +21,12 @@ namespace RentCarSystem
     {
 
         Usuarios usuario = new Usuarios();
-        MainWindow Principal = new MainWindow();
-        public Login()
+        private readonly MainWindow Principal;
+        public Login(MainWindow principal)
         {
             InitializeComponent();
+            Principal = principal;
+            
         
         }
 
@@ -37,10 +39,15 @@ namespace RentCarSystem
         private void IniciarSeccionButtonClick(object sender, RoutedEventArgs e)
         {
             bool paso = UsuariosBLL.Autenticar(NombreUsuarioTextBox.Text, PasswordPasswordBox.Password);
+            UserInfo.IsLoggedIn = paso;
 
             if(paso)
             {
+                
                 Principal.Show();
+                this.Hide();
+                
+                
                 
             }
             else

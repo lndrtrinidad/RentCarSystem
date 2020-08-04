@@ -9,8 +9,8 @@ using RentCarSystem.DAL;
 namespace RentCarSystem.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200803204326_Second_Migration")]
-    partial class Second_Migration
+    [Migration("20200804030721_Initial_Migration")]
+    partial class Initial_Migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -143,25 +143,6 @@ namespace RentCarSystem.Migrations
                     b.ToTable("Marcas");
                 });
 
-            modelBuilder.Entity("RentCarSystem.Entidades.Modelos", b =>
-                {
-                    b.Property<int>("ModeloId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("MarcaId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("ModeloId");
-
-                    b.HasIndex("MarcaId");
-
-                    b.ToTable("Modelos");
-                });
-
             modelBuilder.Entity("RentCarSystem.Entidades.Rentas", b =>
                 {
                     b.Property<int>("RentaId")
@@ -256,8 +237,8 @@ namespace RentCarSystem.Migrations
                     b.Property<string>("Matricula")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ModeloId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Modelo")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Placa")
                         .HasColumnType("TEXT");
@@ -272,9 +253,7 @@ namespace RentCarSystem.Migrations
 
                     b.HasIndex("MarcaId");
 
-                    b.HasIndex("ModeloId");
-
-                    b.ToTable("Vehiculos");
+                    b.ToTable("vehiculos");
                 });
 
             modelBuilder.Entity("RentCarSystem.Entidades.Empleados", b =>
@@ -291,15 +270,6 @@ namespace RentCarSystem.Migrations
                     b.HasOne("RentCarSystem.Entidades.Vehiculos", "vehiculos")
                         .WithMany()
                         .HasForeignKey("VehiculoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("RentCarSystem.Entidades.Modelos", b =>
-                {
-                    b.HasOne("RentCarSystem.Entidades.Marcas", "marcas")
-                        .WithMany()
-                        .HasForeignKey("MarcaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -330,12 +300,6 @@ namespace RentCarSystem.Migrations
                     b.HasOne("RentCarSystem.Entidades.Marcas", "marcas")
                         .WithMany()
                         .HasForeignKey("MarcaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("RentCarSystem.Entidades.Modelos", "modelos")
-                        .WithMany()
-                        .HasForeignKey("ModeloId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

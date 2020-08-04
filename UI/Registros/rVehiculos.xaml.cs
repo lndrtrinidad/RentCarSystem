@@ -12,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using RentCarSystem.Entidades;
+
 
 namespace RentCarSystem.UI.Registros
 {
@@ -25,7 +25,7 @@ namespace RentCarSystem.UI.Registros
         public rVehiculos()
         {
             InitializeComponent();
-            this.DataContext = vehiculos;
+            this.DataContext = Vehiculos;
 
             MarcaComboBox.ItemsSource = MarcasBLL.GetMarcas();
             MarcaComboBox.SelectedValuePath = "MarcaId";

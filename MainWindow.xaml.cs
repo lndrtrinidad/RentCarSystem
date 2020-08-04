@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RentCarSystem.BLL;
 using RentCarSystem.UI.Consultas;
 using RentCarSystem.UI.Registros;
 
@@ -22,12 +23,36 @@ namespace RentCarSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
+            ValidateUserSesion();
+            
         }
 
-    
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Application.Current.Shutdown();
+        }
+
+        private void ValidateUserSesion()
+        {
+            
+
+            if(!UserInfo.IsLoggedIn)
+            {
+                Login Login = new Login(this);
+                this.Hide();
+                Login.Show();
+
+            }
+           
+            
+            
+
+        }
 
         private void UsuarioMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {

@@ -18,6 +18,20 @@
     <Compile Remove="Migrations\20200803202405_SolvedError_Migration.Designer.cs" />
     <Compile Remove="Migrations\20200803203018_Initial Migration.cs" />
     <Compile Remove="Migrations\20200803203018_Initial Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200803203250_Initial_Migration.cs" />
+    <Compile Remove="Migrations\20200803203250_Initial_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200803204326_Second_Migration.cs" />
+    <Compile Remove="Migrations\20200803204326_Second_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200803222807_Third_Migration.cs" />
+    <Compile Remove="Migrations\20200803222807_Third_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200804025311_Chage_Migration.cs" />
+    <Compile Remove="Migrations\20200804025311_Chage_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200804025731_ForeingKey_Migration.cs" />
+    <Compile Remove="Migrations\20200804025731_ForeingKey_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200804025847_ForeingKey_Migration.cs" />
+    <Compile Remove="Migrations\20200804025847_ForeingKey_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200804030105_NewDb_Migration.cs" />
+    <Compile Remove="Migrations\20200804030105_NewDb_Migration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
