@@ -27,7 +27,7 @@
             <ComboBox x:Name="MarcaComboBox" SelectedValue="{Binding MarcaId}" Height="28" Width="130 " HorizontalAlignment="Left" Margin="5,0"/>
 
             <Label Content="Modelo:" Margin="148,-62,0,150"/>
-            <ComboBox x:Name="ModeloCombobox" SelectedValue="{Binding ModeloId}" Height="28" Width="130" HorizontalAlignment="Left" Margin="150,-400,50,-149"/>
+            <TextBox x:Name="ModeloTextbox" Text="{Binding ModeloId}" Height="28" Width="250" HorizontalAlignment="Left" Margin="150,-400,50,-149"/>
 
             <Label Content="Descripciòn:" Margin="0,-105"/>
             <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Margin="5,-80,0,70" Width="275" HorizontalAlignment="Left"/>

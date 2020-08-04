@@ -60,6 +60,7 @@
                 <WrapPanel>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Cliente" MouseDoubleClick="ClienteMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Empleado" MouseDoubleClick="EmpleadoMouseDoubleClick"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Marca" MouseDoubleClick="MarcaMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Vehiculo" MouseDoubleClick="VehiculoMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Renta" MouseDoubleClick="RentaMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Mantenimiento" MouseDoubleClick="MantenimientoMouseDoubleClick"/>

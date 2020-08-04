@@ -74,5 +74,11 @@ namespace RentCarSystem
             cClientes.Show();
 
         }
+
+        private void MarcaMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            rMarcas rMarcas = new rMarcas();
+            rMarcas.Show();
+        }
     }
 }

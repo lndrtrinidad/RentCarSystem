@@ -13,7 +13,7 @@ namespace RentCarSystem.Entidades
         public int VehiculoId { get; set; }
 
         public int MarcaId { get; set; }
-        public int ModeloId { get; set; }
+        public string Modelo { get; set; }
         public string Descripcion { get; set; }
         public string VIN { get; set; }
         public string Placa { get; set; }
@@ -27,9 +27,6 @@ namespace RentCarSystem.Entidades
 
         [ForeignKey("MarcaId")]
         public virtual Marcas marcas { get; set; }
-
-        [ForeignKey("ModeloId")]
-        public virtual Modelos modelos { get; set; }
 
 
 
