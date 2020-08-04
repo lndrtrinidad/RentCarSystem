@@ -13,7 +13,7 @@
                 <Label Content="Renta Id:" Height="24" />
                 <StackPanel Orientation="Horizontal" >
                     <TextBox x:Name="RentaIdTextBox" Margin="5,0" Text="" Width="80"  Height="25" PreviewTextInput="RentaIdTextBoxPreviewTextInput" />
-                    <Button x:Name="BuscarButton" Margin="5,-5" Background="#FFC3C3C3">
+                    <Button x:Name="BuscarButton" Margin="5,-5" Background="#FFC3C3C3" Click="BuscarButton_Click">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Resources/find.png" Margin="-5,0"  Height="20" Width="31"  />
                             <Label Content="Buscar" Height="28" Width="60" Margin="0,-5" FontSize="16"/>
@@ -49,19 +49,19 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Margin="110,200,0,-120" >
-            <Button x:Name="NuevoButton" Margin="10,0"  Height="44" Width="120" Background="#FFC3C3C3">
+            <Button x:Name="NuevoButton" Margin="10,0"  Height="44" Width="120" Background="#FFC3C3C3" Click="NuevoButton_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Resources/plus.png" Height="33" Width="37"/>
                     <Label Content="Nuevo" Height="32" FontSize="16"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="GuardarButton"   Margin="5,0" Height="44" Background="#FFC3C3C3">
+            <Button x:Name="GuardarButton"   Margin="5,0" Height="44" Background="#FFC3C3C3" Click="GuardarButton_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Resources/floppy-disk.png" Height="27"/>
                     <Label Content="Guardar" FontSize="16"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="EliminarButton"  Margin="10,0"  Height="44" Background="#FFC3C3C3">
+            <Button x:Name="EliminarButton"  Margin="10,0"  Height="44" Background="#FFC3C3C3" Click="EliminarButton_Click">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Resources/trash.png" Height="30"/>
                     <Label Content="Eliminar" FontSize="16" />
