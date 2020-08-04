@@ -1,0 +1,51 @@
+﻿<Window x:Class="RentCarSystem.UI.Registros.rCaracteristicas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RentCarSystem.UI.Registros"
+        mc:Ignorable="d"
+        Title="Registro de Caracteristicas del Vehiculo" Height="250" Width="480" WindowStartupLocation="CenterScreen" WindowState="Normal">
+    <Grid Height="428" Margin="0,0,10,0">
+        <StackPanel Orientation="Vertical">
+
+            <StackPanel Orientation="Vertical">
+                <Label Content="Caracteristica Id:" Height="24" />
+                <StackPanel Orientation="Horizontal" >
+                    <TextBox x:Name="CaracteristicaIdTextBox" Margin="5,0" Text="" Width="80"  Height="25" PreviewTextInput="CaracteristicaIdTextBox_PreviewTextInput" />
+                    <Button x:Name="BuscarButton" Margin="5,-5" Background="#FFC3C3C3" Click="BuscarButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/find.png" Margin="-5,0"  Height="20" Width="31"  />
+                            <Label Content="Buscar" Height="28" Width="60" Margin="0,-5" FontSize="16"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <Label Content="Descripciòn:" Margin="0,10"/>
+                <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Margin="5,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Height="119" Width="411">
+                <Button x:Name="NuevoButton" Margin="10,0"  Height="44" Width="120" Background="#FFC3C3C3" Click="NuevoButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/plus.png" Height="33" Width="37"/>
+                        <Label Content="Nuevo" Height="32" FontSize="16"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="GuardarButton"    Height="44" Background="#FFC3C3C3" Click="GuardarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/floppy-disk.png" Height="27"/>
+                        <Label Content="Guardar" FontSize="16"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EliminarButton"  Margin="10,0"  Height="44" Background="#FFC3C3C3" Click="EliminarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/trash.png" Height="30"/>
+                        <Label Content="Eliminar" FontSize="16" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
