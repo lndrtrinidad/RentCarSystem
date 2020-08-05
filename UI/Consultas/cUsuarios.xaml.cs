@@ -15,95 +15,72 @@ using System.Windows.Shapes;
 namespace RentCarSystem.UI.Consultas
 {
     /// <summary>
-    /// Interaction logic for cClientes.xaml
+    /// Interaction logic for cUsuarios.xaml
     /// </summary>
-    public partial class cClientes : Window
+    public partial class cUsuarios : Window
     {
-        public cClientes()
+        public cUsuarios()
         {
             InitializeComponent();
         }
 
         private void ConsultarButton_Click(object sender, RoutedEventArgs e)
         {
-            var listado = new List<Clientes>();
+            var listado = new List<Usuarios>();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
-
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0:
                         try
                         {
-                            listado = ClientesBLL.GetList(e => e.ClienteId == Utilidades.ToInt(CriterioTextBox.Text));
+                            listado = UsuariosBLL.GetList(u => u.UsuarioId == Utilidades.ToInt(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
                             MessageBox.Show("Debes ingresar un Critero valido para aplicar este filtro.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                         }
                         break;
-
-                    
 
                     case 1:
                         try
                         {
-                            listado = ClientesBLL.GetList(e => e.LimiteCredito == Utilidades.ToInt(CriterioTextBox.Text));
+                            listado = UsuariosBLL.GetList(u => u.Nombres.Contains(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
                             MessageBox.Show("Debes ingresar un Critero valido para aplicar este filtro.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                         }
                         break;
-
+                    
                     case 2:
                         try
                         {
-                            listado = ClientesBLL.GetList(e => e.Nombres.Contains(CriterioTextBox.Text));
+                            listado = UsuariosBLL.GetList(u => u.NombreUsuario.Contains(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
                             MessageBox.Show("Debes ingresar un Critero valido para aplicar este filtro.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                         }
                         break;
-
-                    case 3:
-                        try
-                        {
-                            listado = ClientesBLL.GetList(e => e.Apellidos.Contains(CriterioTextBox.Text));
-                        }
-                        catch (FormatException)
-                        {
-                            MessageBox.Show("Debes ingresar un Critero valido para aplicar este filtro.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        }
-                        break;
-
-                    
-
-                    case 4:
-                        try
-                        {
-                            listado = ClientesBLL.GetList(e => e.Sexo.Contains(CriterioTextBox.Text));
-                        }
-                        catch (FormatException)
-                        {
-                            MessageBox.Show("Debes ingresar un Critero valido para aplicar este filtro.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        }
-                        break;
-
-                    
                 }
             }
             else
             {
-                listado = ClientesBLL.GetList(c => true);
+                listado = UsuariosBLL.GetList(c => true);
             }
 
-           
+            if (DesdeDatePicker.SelectedDate != null)
+                listado = UsuariosBLL.GetList(c => c.FechaCreacion.Date >= DesdeDatePicker.SelectedDate);
+
+            if (HastaDatePicker.SelectedDate != null)
+                listado = UsuariosBLL.GetList(c => c.FechaCreacion.Date <= HastaDatePicker.SelectedDate);
 
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
         }
+
     }
 }
+

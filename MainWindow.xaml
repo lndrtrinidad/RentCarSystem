@@ -89,7 +89,7 @@
                 <WrapPanel>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Cliente" MouseDoubleClick="ConsultaClientesMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Vehiculos" MouseDoubleClick="ConsultaVehiculosMouseDoubleClick"/>
-                    <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Usuarios"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Usuarios" MouseDoubleClick="ConsultaUsuarioMouseDoubleClick"/>
                 </WrapPanel>
             </Expander>
 

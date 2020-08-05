@@ -91,7 +91,7 @@ namespace RentCarSystem.UI.Consultas
             }
             else
             {
-                MessageBox.Show("Has dejado el Campo (Criterio) vacio.\n\nPor lo tanto, se mostrarán todos los Vehiculos", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                
                 listado = VehiculosBLL.GetList(c => true);
             }
 

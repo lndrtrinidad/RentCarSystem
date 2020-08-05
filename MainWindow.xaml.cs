@@ -123,5 +123,11 @@ namespace RentCarSystem
             rCaracteristicas rCaracteristicas = new rCaracteristicas();
             rCaracteristicas.Show();
         }
+
+        private void ConsultaUsuarioMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            cUsuarios cUsuarios = new cUsuarios();
+            cUsuarios.Show();
+        }
     }
 }
