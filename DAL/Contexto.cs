@@ -16,10 +16,11 @@ namespace RentCarSystem.DAL
         public DbSet<Clientes> Clientes { get; set; }
         public DbSet<Marcas> Marcas { get; set; }
        
-        public DbSet<Vehiculos> vehiculos { get; set; }
+        public DbSet<Vehiculos> Vehiculos { get; set; }
         public DbSet<Caracteristicas> Caracteristicas { get; set; }
         public DbSet<Mantenimientos> Mantenimientos { get; set; }
         public DbSet<Rentas> Rentas { get; set; }
+        public DbSet<VehiculosDetalle> VehiculosDetalle { get; set; }
 
 
 

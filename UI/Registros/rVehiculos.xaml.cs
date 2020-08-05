@@ -79,17 +79,101 @@ namespace RentCarSystem.UI.Registros
             if (!Validar())
                 return;
 
+            if (VehiculoIdTextBox.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("El Campo (Vehiculo Id) está vacío.\n\nAsigne un Id al Vehiculo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                VehiculoIdTextBox.Text = "0";
+                VehiculoIdTextBox.Focus();
+                VehiculoIdTextBox.SelectAll();
+                return;
+            }
+            if (MarcaComboBox.Text == string.Empty)
+            {
+                MessageBox.Show("El Campo (Marca) está vacío.\n\nPorfavor, Seleccione La Marca del Vehiculo a Crear.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MarcaComboBox.IsDropDownOpen = true;
+                return;
+            }
+            
+            if (MatriculaTextBox.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("El Campo (Matricula) está vacío.\n\nAsigne una Matricula al Vehiculo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MatriculaTextBox.Text = "0";
+                MatriculaTextBox.Focus();
+                MatriculaTextBox.SelectAll();
+                return;
+            }
+            
+            
+            if (ModeloTextbox.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("El Campo (Modelo) está vacío.\n\nAsigne un Modelo al Vehiculo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                ModeloTextbox.Clear();
+                ModeloTextbox.Focus();
+                return;
+            }
+            
+            if (DescripcionTextBox.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("El Campo (Descripciòn) está vacío.\n\nAsigne un comentario al vehiculo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                DescripcionTextBox.Clear();
+                DescripcionTextBox.Focus();
+                return;
+            }
+            
+            if (VINTextBox.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("El Campo (VIN Number) está vacío.\n\nAsigne un VIN al Vehiculo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                VINTextBox.Text = "0";
+                VINTextBox.Focus();
+                VINTextBox.SelectAll();
+                return;
+            }
+            if (PlacaTextBox.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("El Campo(Placa) esta vacio .\n\nAsigne una placa al vehiculo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                PlacaTextBox.Focus();
+                return;
+            }
+           
+            
+            if (AnoTextBox.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("El campo (Año) esta vacio .\n\nAsigne un Año al vehiculo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                AnoTextBox.Focus();
+                return;
+            }
+            
+            //———————————————————————————————[ Direccion ]———————————————————————————————
+            if (CostoTextBox.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("El Campo (Costo) está vacío.\n\nAsigne un costo al Vehiculo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                CostoTextBox.Clear();
+                CostoTextBox.Focus();
+                return;
+            }
+            //———————————————————————————————[ Correo ]———————————————————————————————
+            if (PrecioPorDiaTextBox.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("El Campo (Precio Por Dia) está vacío.\n\nAsigne un Precio al Vehiculo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                PrecioPorDiaTextBox.Clear();
+                PrecioPorDiaTextBox.Focus();
+                return;
+            }
+            //———————————————————————————————————————————————————————[ VALIDAR SI ESTA VACIO - FIN ]———————————————————————————————————————————————————————
+            
+        
+
             var paso = VehiculosBLL.Guardar(Vehiculos);
 
-            if (paso)
-            {
-                Limpiar();
-                MessageBox.Show("Guardado correctamente!", "Exito",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-                MessageBox.Show("Transaccion Fallida", "Fallo",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                if (paso)
+                {
+                    Limpiar();
+                    MessageBox.Show("Guardado correctamente!", "Exito",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                    MessageBox.Show("Transaccion Fallida", "Fallo",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
@@ -104,5 +188,7 @@ namespace RentCarSystem.UI.Registros
                 MessageBox.Show("No fue posible eliminar", "Fallo",
                    MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
+        
     }
 }

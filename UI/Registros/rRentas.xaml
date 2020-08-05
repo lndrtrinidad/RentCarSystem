@@ -32,10 +32,10 @@
             <DatePicker x:Name="FechaRentaDatePicker" SelectedDate="{Binding FechaRenta}" Height="28"  Margin="315,-50,0,-42" Width="200"/>
 
             <Label Content="Candidad de Dias:" Margin="0,20"/>
-            <TextBox x:Name="CantidadDiasTextBox" Text="{Binding CantidadDias}" Margin="5,-20" Height="28" Width="145" HorizontalAlignment="Left" PreviewTextInput="CantidadDiasTextBoxPreviewTextInput"/>
+            <TextBox x:Name="CantidadDiasTextBox" Text="{Binding CantidadDias}" Margin="5,-20" Height="28" Width="145" HorizontalAlignment="Left" PreviewTextInput="CantidadDiasTextBoxPreviewTextInput" TextChanged="CalcularMontoTextChanged"/>
 
             <Label Content="Precio Por Dia:" Margin="5,-44,195,-30" HorizontalAlignment="Center"/>
-            <TextBox x:Name="PrecioPorDiaTextBox" Text="{Binding PrecioPorDia}" Height="28" Width="150" HorizontalAlignment="Left" Margin="180,-14,0,0" />
+            <TextBox x:Name="PrecioPorDiaTextBox" Text="{Binding PrecioPorDia}" Height="28" Width="150" HorizontalAlignment="Left" Margin="180,-14,0,0" TextChanged="CalcularMontoTextChanged"/>
 
             <Label Content="Fecha de Devoluciòn:" HorizontalAlignment="Center" Margin="220,-58,-5,30"/>
             <DatePicker x:Name="FechaDevolucionDateePicker" SelectedDate="{Binding FechaDevolucion}" Margin="0,-28,-310,20"  Height="28" HorizontalAlignment="Center" Width="200"/>
@@ -44,7 +44,7 @@
             <TextBox x:Name="ComentarioTextBox" Text="{Binding Comentario}" Height="28" Width="572" HorizontalAlignment="Left" Margin="5,0"/>
 
             <Label Content="Monto a Pagar" Margin="0,15"/>
-            <TextBox x:Name="MontoAPagarTextBox" Text="{Binding MontoAPagar}" Height="28" Width="150" HorizontalAlignment="Left" Margin="5,-20"/>
+            <TextBox x:Name="MontoAPagarTextBox" Text="{Binding MontoAPagar}" IsReadOnly="True" Height="28" Width="150" HorizontalAlignment="Left" Margin="5,-20"/>
 
         </StackPanel>
 

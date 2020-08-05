@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace RentCarSystem.Entidades
@@ -10,6 +11,7 @@ namespace RentCarSystem.Entidades
     public class Clientes
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ClienteId { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }

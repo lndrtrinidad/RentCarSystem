@@ -32,6 +32,26 @@
     <Compile Remove="Migrations\20200804025847_ForeingKey_Migration.Designer.cs" />
     <Compile Remove="Migrations\20200804030105_NewDb_Migration.cs" />
     <Compile Remove="Migrations\20200804030105_NewDb_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200804030721_Initial_Migration.cs" />
+    <Compile Remove="Migrations\20200804030721_Initial_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200804031243_Second_Migration.cs" />
+    <Compile Remove="Migrations\20200804031243_Second_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200804031538_Third_Migration.cs" />
+    <Compile Remove="Migrations\20200804031538_Third_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200805003036_CambioContexto_Migration.cs" />
+    <Compile Remove="Migrations\20200805003036_CambioContexto_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200805003426_Initial_Migration.cs" />
+    <Compile Remove="Migrations\20200805003426_Initial_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200805043911_Initial_Migration.cs" />
+    <Compile Remove="Migrations\20200805043911_Initial_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200805051944_Second_migration.cs" />
+    <Compile Remove="Migrations\20200805051944_Second_migration.Designer.cs" />
+    <Compile Remove="Migrations\20200805070931_Third_migration.cs" />
+    <Compile Remove="Migrations\20200805070931_Third_migration.Designer.cs" />
+    <Compile Remove="Migrations\20200805071911_Initial_Migration.cs" />
+    <Compile Remove="Migrations\20200805071911_Initial_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200805073458_Second_Migration.cs" />
+    <Compile Remove="Migrations\20200805073458_Second_Migration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -62,9 +62,11 @@
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Empleado" MouseDoubleClick="EmpleadoMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Marca" MouseDoubleClick="MarcaMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Vehiculo" MouseDoubleClick="VehiculoMouseDoubleClick"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Detalle de Vehiculo" MouseDoubleClick="DetalleMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Renta" MouseDoubleClick="RentaMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Mantenimiento" MouseDoubleClick="MantenimientoMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Usuario" MouseDoubleClick="UsuarioMouseDoubleClick"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Registrar Caracteristicas" MouseDoubleClick="CaracteristicasMouseDoubleClick"/>
                     
                 </WrapPanel>
             </Expander>
@@ -86,7 +88,7 @@
                 </Expander.Header>
                 <WrapPanel>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Cliente" MouseDoubleClick="ConsultaClientesMouseDoubleClick"/>
-                    <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Vehiculos"/>
+                    <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Vehiculos" MouseDoubleClick="ConsultaVehiculosMouseDoubleClick"/>
                     <Label Margin="20,5,5,5" Foreground="white" Content="Consultar Usuarios"/>
                 </WrapPanel>
             </Expander>

@@ -27,13 +27,16 @@
             <ComboBox x:Name="MarcaComboBox" SelectedValue="{Binding MarcaId}" Height="28" Width="130 " HorizontalAlignment="Left" Margin="5,0"/>
 
             <Label Content="Modelo:" Margin="148,-62,0,150"/>
-            <TextBox x:Name="ModeloTextbox" Text="{Binding Modelo}" Height="28" Width="250" HorizontalAlignment="Left" Margin="150,-400,50,-149"/>
+            <TextBox x:Name="ModeloTextbox" Text="{Binding Modelo}" Height="28" Width="180" HorizontalAlignment="Left" Margin="150,-400,50,-149"/>
+
+            <Label Content="Fecha de Ingreso:" HorizontalAlignment="Right" Margin="150,-175,90,150"/>
+            <DatePicker x:Name="FechaIngresoDatePicker" Text="{Binding FechaIngreso}" Height="28" Width="150" HorizontalAlignment="Right" Margin="150,-400,40,-149"/>
 
             <Label Content="Descripciòn:" Margin="0,-105"/>
-            <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Margin="5,-80,0,70" Width="275" HorizontalAlignment="Left"/>
+            <TextBox x:Name="DescripcionTextBox" Text="{Binding Descripcion}" Margin="5,-80,0,70" Width="325" HorizontalAlignment="Left"/>
 
-            <Label Content="VIN Number:" Margin="295,-118,0,100"/>
-            <TextBox x:Name="VINTextBox" Text="{Binding VIN}" HorizontalAlignment="Center" Margin="220,-102,-10,90" Width="180"/>
+            <Label Content="VIN Number:" Margin="350,-118,0,100"/>
+            <TextBox x:Name="VINTextBox" Text="{Binding VIN}" HorizontalAlignment="Center" Margin="305,-102,-10,90" Width="150"/>
 
             <Label Content="Placa:" Margin="0,-80"/>
             <TextBox x:Name="PlacaTextBox" Text="{Binding Placa}" Margin="5,-60,0,45" Width="150" HorizontalAlignment="Left"/>
@@ -45,10 +48,10 @@
             <TextBox x:Name="AnoTextBox" Text="{Binding Ano}" HorizontalAlignment="Center" Width="150" Margin="325,-83,0,65"/>
 
             <Label Content="Color:" Margin="0,-55,5,0"/>
-            <TextBox x:Name="ColorTextBox" Text="{Binding Color}" Margin="5,-35,5,10" HorizontalAlignment="Left" Width="150"/>
+            <TextBox x:Name="ColorTextBox" Text="{Binding Color}" Margin="5,-35,5,10" HorizontalAlignment="Left" Width="150"  />
 
             <Label Content="Costo:" HorizontalAlignment="Center" Margin="5,-55,158,0"/>
-            <TextBox x:Name="CostoTextBox" Text="{Binding Costo}" HorizontalAlignment="Center" Width="150" Margin="-45,-35,-10,30"/>
+            <TextBox x:Name="CostoTextBox" Text="{Binding Costo}" HorizontalAlignment="Center" Width="150" Margin="-45,-35,-10,30" />
 
             <Label Content="Precio por Dìa:" HorizontalAlignment="Center" Margin="250,-75,0,50"/>
             <TextBox x:Name="PrecioPorDiaTextBox" Text="{Binding PrecioPorDia}" HorizontalAlignment="Center" Width="150" Margin="325,-55,0,50"/>

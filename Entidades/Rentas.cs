@@ -12,7 +12,6 @@ namespace RentCarSystem.Entidades
         public int RentaId { get; set; }
         public int ClienteId { get; set; }
         public int VehiculoId { get; set; }
-        public int EmpleadoId { get; set; }
         public DateTime FechaRenta { get; set; } = DateTime.Now;
         public DateTime FechaDevolucion { get; set; }
         public int CantidadDias { get; set; }
@@ -26,7 +25,6 @@ namespace RentCarSystem.Entidades
         [ForeignKey("VehiculoId")]
         public virtual Vehiculos vehiculos { get; set; }
 
-        [ForeignKey("EmpleadoId")]
-        public virtual Empleados empleados { get; set; }
+        
     }
 }

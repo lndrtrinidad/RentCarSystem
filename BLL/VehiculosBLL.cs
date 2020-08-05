@@ -19,7 +19,7 @@ namespace RentCarSystem.BLL
 
             try
             {
-                contexto.vehiculos.Add(vehiculos);
+                contexto.Vehiculos.Add(vehiculos);
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -41,7 +41,7 @@ namespace RentCarSystem.BLL
 
             try
             {
-                encontrado = contexto.vehiculos.Any(e => e.VehiculoId == id);
+                encontrado = contexto.Vehiculos.Any(e => e.VehiculoId == id);
             }
             catch (Exception)
             {
@@ -94,11 +94,11 @@ namespace RentCarSystem.BLL
 
             try
             {
-                var vehiculos = contexto.vehiculos.Find(id);
+                var vehiculos = contexto.Vehiculos.Find(id);
 
                 if (vehiculos != null)
                 {
-                    contexto.vehiculos.Remove(vehiculos);
+                    contexto.Vehiculos.Remove(vehiculos);
                     eliminado = contexto.SaveChanges() > 0;
                 }
             }
@@ -121,7 +121,7 @@ namespace RentCarSystem.BLL
 
             try
             {
-                vehiculos = contexto.vehiculos.Find(id);
+                vehiculos = contexto.Vehiculos.Find(id);
 
             }
             catch (Exception)
@@ -143,7 +143,7 @@ namespace RentCarSystem.BLL
 
             try
             {
-                lista = contexto.vehiculos.ToList();
+                lista = contexto.Vehiculos.ToList();
             }
             catch
             {
@@ -163,7 +163,7 @@ namespace RentCarSystem.BLL
 
             try
             {
-                lista = contexto.vehiculos.Where(criterio).ToList();
+                lista = contexto.Vehiculos.Where(criterio).ToList();
             }
             catch (Exception)
             {
@@ -178,3 +178,4 @@ namespace RentCarSystem.BLL
         }
     }
 }
+

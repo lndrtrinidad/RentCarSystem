@@ -11,7 +11,7 @@ namespace RentCarSystem.Entidades
     {
         [Key]
         public int EmpleadoId { get; set; }
-        public int UsuarioId { get; set; }
+        
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Cedula { get; set; }
@@ -20,8 +20,6 @@ namespace RentCarSystem.Entidades
         public DateTime FechaIngreso { get; set; } = DateTime.Now;
         public decimal PorcientoComision { get; set; }
 
-        [ForeignKey("UsuarioId")]
-        public Usuarios usuarios { get; set; }
-
+        
     }
 }

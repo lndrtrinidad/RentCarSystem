@@ -24,6 +24,10 @@ namespace RentCarSystem.UI.Registros
         public rMantenimientos()
         {
             InitializeComponent();
+
+            VehiculoComboBox.ItemsSource = VehiculosBLL.GetVehiculos();
+            VehiculoComboBox.SelectedValuePath = "VehiculoId";
+            VehiculoComboBox.DisplayMemberPath = "Modelo";
         }
 
         private void MantenimientoIdTextBoxPreviewTextInput(object sender, TextCompositionEventArgs e)

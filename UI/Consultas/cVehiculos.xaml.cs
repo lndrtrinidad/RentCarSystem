@@ -15,28 +15,27 @@ using System.Windows.Shapes;
 namespace RentCarSystem.UI.Consultas
 {
     /// <summary>
-    /// Interaction logic for cClientes.xaml
+    /// Interaction logic for cVehiculos.xaml
     /// </summary>
-    public partial class cClientes : Window
+    public partial class cVehiculos : Window
     {
-        public cClientes()
+        public cVehiculos()
         {
             InitializeComponent();
         }
 
         private void ConsultarButton_Click(object sender, RoutedEventArgs e)
         {
-            var listado = new List<Clientes>();
+            var listado = new List<Vehiculos>();
 
             if (CriterioTextBox.Text.Trim().Length > 0)
             {
-
                 switch (FiltroComboBox.SelectedIndex)
                 {
                     case 0:
                         try
                         {
-                            listado = ClientesBLL.GetList(e => e.ClienteId == Utilidades.ToInt(CriterioTextBox.Text));
+                            listado = VehiculosBLL.GetList(l => l.VehiculoId == Utilidades.ToInt(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
@@ -44,12 +43,10 @@ namespace RentCarSystem.UI.Consultas
                         }
                         break;
 
-                    
-
                     case 1:
                         try
                         {
-                            listado = ClientesBLL.GetList(e => e.LimiteCredito == Utilidades.ToInt(CriterioTextBox.Text));
+                            listado = VehiculosBLL.GetList(l => l.MarcaId == Utilidades.ToInt(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
@@ -60,7 +57,7 @@ namespace RentCarSystem.UI.Consultas
                     case 2:
                         try
                         {
-                            listado = ClientesBLL.GetList(e => e.Nombres.Contains(CriterioTextBox.Text));
+                            listado = VehiculosBLL.GetList(l => l.Modelo.Contains(CriterioTextBox.Text));
                         }
                         catch (FormatException)
                         {
@@ -71,7 +68,7 @@ namespace RentCarSystem.UI.Consultas
                     case 3:
                         try
                         {
-                            listado = ClientesBLL.GetList(e => e.Apellidos.Contains(CriterioTextBox.Text));
+                            listado = VehiculosBLL.GetList(l => l.Ano == Utilidades.ToInt(CriterioTextBox.Text)); 
                         }
                         catch (FormatException)
                         {
@@ -79,32 +76,34 @@ namespace RentCarSystem.UI.Consultas
                         }
                         break;
 
-                    
-
-                    case 4:
+                    case 5:
                         try
                         {
-                            listado = ClientesBLL.GetList(e => e.Sexo.Contains(CriterioTextBox.Text));
+                            long id = long.Parse(CriterioTextBox.Text);
+                            listado = VehiculosBLL.GetList(l => l.Costo == id);
                         }
                         catch (FormatException)
                         {
                             MessageBox.Show("Debes ingresar un Critero valido para aplicar este filtro.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                         }
                         break;
-
-                    
                 }
             }
             else
             {
-                MessageBox.Show("Has dejado el Campo (Criterio) vacio.\n\nPor lo tanto, se mostrarán todos los Clientes", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
-                listado = ClientesBLL.GetList(c => true);
+                MessageBox.Show("Has dejado el Campo (Criterio) vacio.\n\nPor lo tanto, se mostrarán todos los Vehiculos", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                listado = VehiculosBLL.GetList(c => true);
             }
 
-           
+            if (DesdeDatePicker.SelectedDate != null)
+                listado = VehiculosBLL.GetList(c => c.FechaIngreso.Date >= DesdeDatePicker.SelectedDate);
+
+            if (HastaDatePicker.SelectedDate != null)
+                listado = VehiculosBLL.GetList(c => c.FechaIngreso.Date <= HastaDatePicker.SelectedDate);
 
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
         }
     }
+    
 }

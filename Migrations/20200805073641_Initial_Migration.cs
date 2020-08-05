@@ -41,6 +41,25 @@ namespace RentCarSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Empleados",
+                columns: table => new
+                {
+                    EmpleadoId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombres = table.Column<string>(nullable: true),
+                    Apellidos = table.Column<string>(nullable: true),
+                    Cedula = table.Column<string>(nullable: true),
+                    Telefono = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    FechaIngreso = table.Column<DateTime>(nullable: false),
+                    PorcientoComision = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Empleados", x => x.EmpleadoId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Marcas",
                 columns: table => new
                 {
@@ -70,12 +89,13 @@ namespace RentCarSystem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "vehiculos",
+                name: "Vehiculos",
                 columns: table => new
                 {
                     VehiculoId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     MarcaId = table.Column<int>(nullable: false),
+                    CaracteristicasId = table.Column<int>(nullable: false),
                     Modelo = table.Column<string>(nullable: true),
                     Descripcion = table.Column<string>(nullable: true),
                     VIN = table.Column<string>(nullable: true),
@@ -85,42 +105,17 @@ namespace RentCarSystem.Migrations
                     Color = table.Column<string>(nullable: true),
                     Costo = table.Column<decimal>(nullable: false),
                     PrecioPorDia = table.Column<decimal>(nullable: false),
+                    FechaIngreso = table.Column<DateTime>(nullable: false),
                     Disponible = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_vehiculos", x => x.VehiculoId);
+                    table.PrimaryKey("PK_Vehiculos", x => x.VehiculoId);
                     table.ForeignKey(
-                        name: "FK_vehiculos_Marcas_MarcaId",
+                        name: "FK_Vehiculos_Marcas_MarcaId",
                         column: x => x.MarcaId,
                         principalTable: "Marcas",
                         principalColumn: "MarcaId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Empleados",
-                columns: table => new
-                {
-                    EmpleadoId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    UsuarioId = table.Column<int>(nullable: false),
-                    Nombres = table.Column<string>(nullable: true),
-                    Apellidos = table.Column<string>(nullable: true),
-                    Cedula = table.Column<string>(nullable: true),
-                    Telefono = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    FechaIngreso = table.Column<DateTime>(nullable: false),
-                    PorcientoComision = table.Column<decimal>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Empleados", x => x.EmpleadoId);
-                    table.ForeignKey(
-                        name: "FK_Empleados_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
-                        principalColumn: "UsuarioId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -139,9 +134,9 @@ namespace RentCarSystem.Migrations
                 {
                     table.PrimaryKey("PK_Mantenimientos", x => x.MantenimientoId);
                     table.ForeignKey(
-                        name: "FK_Mantenimientos_vehiculos_VehiculoId",
+                        name: "FK_Mantenimientos_Vehiculos_VehiculoId",
                         column: x => x.VehiculoId,
-                        principalTable: "vehiculos",
+                        principalTable: "Vehiculos",
                         principalColumn: "VehiculoId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -154,7 +149,6 @@ namespace RentCarSystem.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     ClienteId = table.Column<int>(nullable: false),
                     VehiculoId = table.Column<int>(nullable: false),
-                    EmpleadoId = table.Column<int>(nullable: false),
                     FechaRenta = table.Column<DateTime>(nullable: false),
                     FechaDevolucion = table.Column<DateTime>(nullable: false),
                     CantidadDias = table.Column<int>(nullable: false),
@@ -172,23 +166,46 @@ namespace RentCarSystem.Migrations
                         principalColumn: "ClienteId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Rentas_Empleados_EmpleadoId",
-                        column: x => x.EmpleadoId,
-                        principalTable: "Empleados",
-                        principalColumn: "EmpleadoId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Rentas_vehiculos_VehiculoId",
+                        name: "FK_Rentas_Vehiculos_VehiculoId",
                         column: x => x.VehiculoId,
-                        principalTable: "vehiculos",
+                        principalTable: "Vehiculos",
                         principalColumn: "VehiculoId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Empleados_UsuarioId",
-                table: "Empleados",
-                column: "UsuarioId");
+            migrationBuilder.CreateTable(
+                name: "VehiculosDetalle",
+                columns: table => new
+                {
+                    VehihiculoDetalleId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    MarcaId = table.Column<int>(nullable: false),
+                    VehiculoId = table.Column<int>(nullable: false),
+                    CaracteristicasId = table.Column<int>(nullable: false),
+                    Descripcion = table.Column<string>(nullable: true),
+                    Fecha = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VehiculosDetalle", x => x.VehihiculoDetalleId);
+                    table.ForeignKey(
+                        name: "FK_VehiculosDetalle_Caracteristicas_CaracteristicasId",
+                        column: x => x.CaracteristicasId,
+                        principalTable: "Caracteristicas",
+                        principalColumn: "CaracteristicasId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_VehiculosDetalle_Vehiculos_VehiculoId",
+                        column: x => x.VehiculoId,
+                        principalTable: "Vehiculos",
+                        principalColumn: "VehiculoId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "UsuarioId", "FechaCreacion", "NombreUsuario", "Nombres", "Password" },
+                values: new object[] { 1, new DateTime(2020, 8, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin", "Leandro Trinidad", "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Mantenimientos_VehiculoId",
@@ -201,25 +218,30 @@ namespace RentCarSystem.Migrations
                 column: "ClienteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rentas_EmpleadoId",
-                table: "Rentas",
-                column: "EmpleadoId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Rentas_VehiculoId",
                 table: "Rentas",
                 column: "VehiculoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_vehiculos_MarcaId",
-                table: "vehiculos",
+                name: "IX_Vehiculos_MarcaId",
+                table: "Vehiculos",
                 column: "MarcaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VehiculosDetalle_CaracteristicasId",
+                table: "VehiculosDetalle",
+                column: "CaracteristicasId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_VehiculosDetalle_VehiculoId",
+                table: "VehiculosDetalle",
+                column: "VehiculoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Caracteristicas");
+                name: "Empleados");
 
             migrationBuilder.DropTable(
                 name: "Mantenimientos");
@@ -228,16 +250,19 @@ namespace RentCarSystem.Migrations
                 name: "Rentas");
 
             migrationBuilder.DropTable(
+                name: "Usuarios");
+
+            migrationBuilder.DropTable(
+                name: "VehiculosDetalle");
+
+            migrationBuilder.DropTable(
                 name: "Clientes");
 
             migrationBuilder.DropTable(
-                name: "Empleados");
+                name: "Caracteristicas");
 
             migrationBuilder.DropTable(
-                name: "vehiculos");
-
-            migrationBuilder.DropTable(
-                name: "Usuarios");
+                name: "Vehiculos");
 
             migrationBuilder.DropTable(
                 name: "Marcas");

@@ -24,6 +24,15 @@ namespace RentCarSystem.UI.Registros
         public rRentas()
         {
             InitializeComponent();
+            ClienteComboBox.ItemsSource = ClientesBLL.GetClientes();
+            ClienteComboBox.SelectedValuePath = "ClineteId";
+            ClienteComboBox.DisplayMemberPath = "Nombres";
+
+            VehiculoComboBox.ItemsSource = VehiculosBLL.GetVehiculos();
+            VehiculoComboBox.SelectedValuePath = "VehiculoId";
+            VehiculoComboBox.DisplayMemberPath = "Modelo";
+
+           
         }
 
         private void RentaIdTextBoxPreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -103,6 +112,18 @@ namespace RentCarSystem.UI.Registros
             else
                 MessageBox.Show("No fue posible eliminar", "Fallo",
                    MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void CalcularMontoTextChanged(object sender, TextChangedEventArgs e)
+        {
+            decimal CantidadDias, Precio, Total;
+
+            decimal.TryParse(CantidadDiasTextBox.Text, out CantidadDias);
+            decimal.TryParse(PrecioPorDiaTextBox.Text, out Precio);
+
+            Total = CantidadDias * Precio;
+
+            MontoAPagarTextBox.Text = Total.ToString();
         }
     }
 }
