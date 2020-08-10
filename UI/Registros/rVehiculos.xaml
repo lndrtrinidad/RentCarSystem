@@ -54,16 +54,7 @@
             <Label Content="Costo:" HorizontalAlignment="Center" Margin="5,-55,508,0"/>
             <TextBox x:Name="CostoTextBox" Text="{Binding Costo}" HorizontalAlignment="Center" Width="150" Margin="-38,-35,-10,30" />
 
-            <Label Content="Precio por Dìa:" HorizontalAlignment="Center" Margin="-100,-75,0,50" RenderTransformOrigin="0.5,0.5">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-0.615"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
+            <Label Content="Precio por Dìa:" HorizontalAlignment="Center" Margin="-100,-75,0,50" RenderTransformOrigin="0.5,0.5"/>
             <TextBox x:Name="PrecioPorDiaTextBox" Text="{Binding PrecioPorDia}" HorizontalAlignment="Center" Width="150" Margin="-390,-55,0,50"/>
 
             <StackPanel Orientation="Vertical" Margin="5,20">
@@ -105,10 +96,10 @@
 
 
 
-                        <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Detalle}" Height="100" AutoGenerateColumns="False" >
+                        <DataGrid x:Name="DetalleDataGrid" ItemsSource="{Binding Detalle}" Height="122" AutoGenerateColumns="False" >
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Caracteristicas Id" Binding="{Binding CaracteristicasId}"/>
-                                <DataGridTextColumn Header="Caracteristicas" Binding="{Binding Caracteristicas.Descripcion}"/>
+                                <DataGridTextColumn Header="Caracteristica" Binding="{Binding caracteristicas.Descripcion}"/>
                                 <DataGridTextColumn Header="Observacion" Binding="{Binding Observacion}"/>
 
                             </DataGrid.Columns>
