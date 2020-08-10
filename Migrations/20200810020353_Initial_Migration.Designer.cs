@@ -9,7 +9,7 @@ using RentCarSystem.DAL;
 namespace RentCarSystem.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200805073641_Initial_Migration")]
+    [Migration("20200810020353_Initial_Migration")]
     partial class Initial_Migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -271,14 +271,14 @@ namespace RentCarSystem.Migrations
                     b.Property<int>("CaracteristicasId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("MarcaId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Observacion")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("VehiculoId")
                         .HasColumnType("INTEGER");

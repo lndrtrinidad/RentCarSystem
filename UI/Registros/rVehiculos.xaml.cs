@@ -21,15 +21,19 @@ namespace RentCarSystem.UI.Registros
     /// </summary>
     public partial class rVehiculos : Window
     {
-        private Vehiculos Vehiculos = new Vehiculos();
+        private Vehiculos vehiculos = new Vehiculos();
         public rVehiculos()
         {
             InitializeComponent();
-            this.DataContext = Vehiculos;
+            this.DataContext = vehiculos;
 
             MarcaComboBox.ItemsSource = MarcasBLL.GetMarcas();
             MarcaComboBox.SelectedValuePath = "MarcaId";
             MarcaComboBox.DisplayMemberPath = "Descripcion";
+
+            CaracteristicasComboBox.ItemsSource = CaracteristicasBLL.GetCaracteristicas();
+            CaracteristicasComboBox.SelectedValuePath = "CaracteristicasId";
+            CaracteristicasComboBox.DisplayMemberPath = "Descripcion";
         }
 
         private void VehiculoIdTextBoxPreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -37,10 +41,16 @@ namespace RentCarSystem.UI.Registros
             e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
 
+        private void Cargar()
+        {
+            this.DataContext = null;
+            this.DataContext = vehiculos;
+        }
+
         private void Limpiar()
         {
-            this.Vehiculos = new Vehiculos();
-            this.DataContext = Vehiculos;
+            this.vehiculos = new Vehiculos();
+            this.DataContext = vehiculos;
         }
 
         private bool Validar()
@@ -59,19 +69,68 @@ namespace RentCarSystem.UI.Registros
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
-            var vehiculos = VehiculosBLL.Buscar(Utilidades.ToInt(VehiculoIdTextBox.Text));
+            Vehiculos encontrado = VehiculosBLL.Buscar(vehiculos.VehiculoId);
 
-            if (vehiculos != null)
-                this.Vehiculos = vehiculos;
+            if (encontrado != null)
+            {
+                vehiculos = encontrado;
+                Cargar();
+            }
             else
-                this.Vehiculos = new Vehiculos();
-
-            this.DataContext = this.Vehiculos;
+            {
+                MessageBox.Show("Esta Vehiculo no fue encontrado.\n\nAsegúrese que existe o cree una nueva.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                Limpiar();
+                VehiculoIdTextBox.SelectAll();
+                VehiculoIdTextBox.Focus();
+            }
         }
 
         private void NuevoButton_Click(object sender, RoutedEventArgs e)
         {
             Limpiar();
+        }
+
+        private void AgregarFilaButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (CaracteristicasComboBox.Text == string.Empty)
+            {
+                MessageBox.Show("El Campo (Caracteristicas) está vacío.\n\nPorfavor, Seleccione el Libro.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                CaracteristicasComboBox.IsDropDownOpen = true;
+                return;
+            }
+            if (ObservacionTextBox.Text == String.Empty)
+            {
+                MessageBox.Show("El Campo (Observacion) está vacio.\n\nEscriba la referencia.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                ObservacionTextBox.Focus();
+                return;
+            }
+
+            var filaDetalle = new VehiculosDetalle
+            {
+                VehiculoId = this.vehiculos.VehiculoId,
+                CaracteristicasId = Convert.ToInt32(CaracteristicasComboBox.SelectedValue.ToString()),
+                caracteristicas = (Caracteristicas)CaracteristicasComboBox.SelectedItem,
+                Observacion = ObservacionTextBox.Text.ToString(),
+
+
+            };
+
+            this.vehiculos.Detalle.Add(filaDetalle);
+            Cargar();
+
+            CaracteristicasComboBox.SelectedIndex = -1;
+            ObservacionTextBox.Clear();
+
+        }
+
+        private void RemoverFilaButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
+            {
+                vehiculos.Detalle.RemoveAt(DetalleDataGrid.SelectedIndex);
+                Cargar();
+            }
         }
 
         private void GuardarButton_Click(object sender, RoutedEventArgs e)
@@ -143,7 +202,7 @@ namespace RentCarSystem.UI.Registros
                 return;
             }
             
-            //———————————————————————————————[ Direccion ]———————————————————————————————
+            
             if (CostoTextBox.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("El Campo (Costo) está vacío.\n\nAsigne un costo al Vehiculo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -151,7 +210,7 @@ namespace RentCarSystem.UI.Registros
                 CostoTextBox.Focus();
                 return;
             }
-            //———————————————————————————————[ Correo ]———————————————————————————————
+            
             if (PrecioPorDiaTextBox.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("El Campo (Precio Por Dia) está vacío.\n\nAsigne un Precio al Vehiculo.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -159,11 +218,11 @@ namespace RentCarSystem.UI.Registros
                 PrecioPorDiaTextBox.Focus();
                 return;
             }
-            //———————————————————————————————————————————————————————[ VALIDAR SI ESTA VACIO - FIN ]———————————————————————————————————————————————————————
+            
             
         
 
-            var paso = VehiculosBLL.Guardar(Vehiculos);
+            var paso = VehiculosBLL.Guardar(vehiculos);
 
                 if (paso)
                 {

@@ -52,6 +52,14 @@
     <Compile Remove="Migrations\20200805071911_Initial_Migration.Designer.cs" />
     <Compile Remove="Migrations\20200805073458_Second_Migration.cs" />
     <Compile Remove="Migrations\20200805073458_Second_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200805073641_Initial_Migration.cs" />
+    <Compile Remove="Migrations\20200805073641_Initial_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200810012203_Second_Migration.cs" />
+    <Compile Remove="Migrations\20200810012203_Second_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200810012348_Initial_Migration.cs" />
+    <Compile Remove="Migrations\20200810012348_Initial_Migration.Designer.cs" />
+    <Compile Remove="Migrations\20200810014902_Initial_Migration.cs" />
+    <Compile Remove="Migrations\20200810014902_Initial_Migration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

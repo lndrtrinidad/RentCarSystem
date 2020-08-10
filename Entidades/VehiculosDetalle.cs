@@ -15,12 +15,12 @@ namespace RentCarSystem.Entidades
         public int MarcaId { get; set; }
         public int VehiculoId { get; set; }
         public int CaracteristicasId { get; set; }
-        public string Descripcion { get; set; }
+        public string Observacion { get; set; }
         public DateTime Fecha { get; set; } = DateTime.Now;
 
 
         [ForeignKey("CaracteristicasId")]
-        public virtual Caracteristicas caracteristicas { get; set; }
+        public virtual Caracteristicas caracteristicas { get; set; } = new Caracteristicas();
 
 
 

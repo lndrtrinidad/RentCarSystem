@@ -182,7 +182,7 @@ namespace RentCarSystem.Migrations
                     MarcaId = table.Column<int>(nullable: false),
                     VehiculoId = table.Column<int>(nullable: false),
                     CaracteristicasId = table.Column<int>(nullable: false),
-                    Descripcion = table.Column<string>(nullable: true),
+                    Observacion = table.Column<string>(nullable: true),
                     Fecha = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

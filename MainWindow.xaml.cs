@@ -106,12 +106,6 @@ namespace RentCarSystem
             rMarcas.Show();
         }
 
-        private void DetalleMouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            rVehiculosDetalle rVehiculosDetalle = new rVehiculosDetalle();
-            rVehiculosDetalle.Show();
-        }
-
         private void ConsultaVehiculosMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             cVehiculos cVehiculos = new cVehiculos();

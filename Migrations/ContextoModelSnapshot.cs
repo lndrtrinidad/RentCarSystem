@@ -269,14 +269,14 @@ namespace RentCarSystem.Migrations
                     b.Property<int>("CaracteristicasId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("MarcaId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Observacion")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("VehiculoId")
                         .HasColumnType("INTEGER");
